@@ -16,33 +16,33 @@
 int	ft_ultimate_range(int **range, int min, int max)
 {
 	int	i;
+	int	n;
 
+	n = min;
 	if (min >= max)
 	{
 		*range = NULL;
 		return (0);
 	}
-	i = min - 1;
-	len = 0;
-	while (i++ < max)
-		len++;
-	tab = (int *)malloc(len * sizeof(int));
+	*range = (int *)malloc((max - min) * sizeof(int));
 	i = 0;
-	while (i <= len)
-		tab[i++] = min++;
-	return (tab);
+	while (min < max)
+		range[0][i++] = min++;
+	return (max - n);
 }
-
+/*
 int	main(int argc, char **argv)
 {
 	int	i;
+	int	*tab;
 
 	i = 0;
 	if (argc == 3)
 	{
-		int *tab = ft_range(atoi(argv[1]), atoi(argv[2]));
+		printf("%i\n", ft_ultimate_range(&tab, atoi(argv[1]), atoi(argv[2])));
 		while (i < atoi(argv[2]) - atoi(argv[1]))
 			printf("%i ", tab[i++]);
 		printf("\n");
 	}
 }
+*/
