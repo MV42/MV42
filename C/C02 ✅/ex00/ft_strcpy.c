@@ -1,47 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 15:27:14 by mavander          #+#    #+#             */
-/*   Updated: 2024/08/22 15:27:15 by mavander         ###   ########.fr       */
+/*   Created: 2024/08/12 15:46:17 by mavander          #+#    #+#             */
+/*   Updated: 2024/08/13 15:19:41 by mavander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
+#include <string.h>
 
-void	ft_putchar(char c)
+char	*ft_strcpy(char *dest, char *src)
 {
-	write(1, &c, 1);
-}
+	int	i;
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
-		write(1, "-2147483648", 11);
-	else if (nb < 0)
+	i = 0;
+	while (src[i])
 	{
-		write(1, "-", 1);
-		nb = -nb;
-		ft_putnbr(nb);
+		dest[i] = src[i];
+		i++;
 	}
-	else if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else
-		ft_putchar(nb + 48);
+	dest[i] = '\0';
+	return (dest);
 }
 /*
-#include <stdlib.h>
-
 int	main(int argc, char **argv)
 {
-	if (argc == 2)
-		ft_putnbr(atoi(argv[1]));
+	if (argc == 4)
+	{
+		printf("src:\t%s\n", argv[2]);
+//		printf("FT:\t%s\n", ft_strcpy(argv[1], argv[2], atoi(argv[3])));
+		printf("OG:\t%s\n", strcpy(argv[1], argv[2], atoi(argv[3])));
+	}
 	return (0);
 }
 */

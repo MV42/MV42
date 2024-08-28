@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
 int	ft_atoi(char *str)
 {
 	int	i;
@@ -40,11 +38,12 @@ int	ft_atoi(char *str)
 	return (nbr);
 }
 /*
+#include <stdio.h>
+
 int	main(int argc, char **argv)
 {
-	if (argc <= 1)
-		return (0);
-	printf("%d\n", ft_atoi(argv[1]));
+	if (argc == 2)
+		printf("%d\n", ft_atoi(argv[1]));
 	return (0);
 }
 */

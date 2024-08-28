@@ -1,31 +1,51 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 15:27:01 by mavander          #+#    #+#             */
-/*   Updated: 2024/08/22 15:27:02 by mavander         ###   ########.fr       */
+/*   Created: 2024/08/14 23:27:13 by mavander          #+#    #+#             */
+/*   Updated: 2024/08/14 23:27:16 by mavander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include <stdio.h>
 
 int	ft_strlen(char *str)
 {
 	int	i;
 
 	i = 0;
-	while (str[i])
+	while (str[i] != '\0')
 		i++;
 	return (i);
 }
-/*
-#include <stdio.h>
 
-int	main(int argc, char **argv)
+unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
 {
-	if (argc == 2)
-		printf("%i\n", ft_strlen(argv[1]));
-	return (0);
+	unsigned int	x;
+	unsigned int	i;
+
+	x = ft_strlen(src);
+	i = 0;
+	if (size != 0)
+	{
+		while (src[i] && i < size - 1)
+		{
+			dest[i] = src[i];
+			i++;
+		}
+		dest[i] = '\0';
+	}
+	return (x);
+}
+/*
+int	main(void)
+{
+	char	src[] = "Salut";
+	char	dest[] = "Bonjour";
+
+	printf("%u\n%s\n", ft_strlcpy(dest, src, 4), dest);
 }
 */

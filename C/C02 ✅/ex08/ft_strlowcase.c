@@ -1,47 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr.c                                        :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 15:27:14 by mavander          #+#    #+#             */
-/*   Updated: 2024/08/22 15:27:15 by mavander         ###   ########.fr       */
+/*   Created: 2024/08/14 14:45:22 by mavander          #+#    #+#             */
+/*   Updated: 2024/08/14 14:45:35 by mavander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
 
-void	ft_putchar(char c)
+char	*ft_strlowcase(char *str)
 {
-	write(1, &c, 1);
-}
+	int	i;
 
-void	ft_putnbr(int nb)
-{
-	if (nb == -2147483648)
-		write(1, "-2147483648", 11);
-	else if (nb < 0)
+	i = 0;
+	while (str[i])
 	{
-		write(1, "-", 1);
-		nb = -nb;
-		ft_putnbr(nb);
+		if (str[i] >= 'A' && str[i] <= 'Z')
+			str[i] += 32;
+		i++;
 	}
-	else if (nb > 9)
-	{
-		ft_putnbr(nb / 10);
-		ft_putnbr(nb % 10);
-	}
-	else
-		ft_putchar(nb + 48);
+	return (str);
 }
 /*
-#include <stdlib.h>
-
-int	main(int argc, char **argv)
+int	main(void)
 {
-	if (argc == 2)
-		ft_putnbr(atoi(argv[1]));
+	char	str[] = "";
+
+	printf("%s\n", str);
+	printf("%s\n", ft_strlowcase(str));
 	return (0);
 }
 */
