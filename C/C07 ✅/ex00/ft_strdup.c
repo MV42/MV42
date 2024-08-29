@@ -1,56 +1,52 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mavander <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/22 15:27:22 by mavander          #+#    #+#             */
-/*   Updated: 2024/08/22 15:27:24 by mavander         ###   ########.fr       */
+/*   Created: 2024/08/26 00:12:31 by mavander          #+#    #+#             */
+/*   Updated: 2024/08/26 00:12:36 by mavander         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-void	ft_putchar(char c)
-{
-	write(1, &c, 1);
-}
-
-char	*ft_convert_base(char *str, char *base)
+int	ft_strlen(char *str)
 {
 	int	i;
-	int	bsize;
 
-	i = 0;
-	while (base[i])
-		i++;
-	bsize = i;
 	i = 0;
 	while (str[i])
-	{
-		ft_putchar(base[str[i] / bsize]);
-		ft_putchar(base[str[i] % bsize]);
 		i++;
-	}
+	return (i);
 }
 
-char	*ft_itoa(int nb)
+char	*ft_strdup(char *src)
 {
-	if (nb < 0)
-		str[0] = '-';
-	if (nb > 9)
+	char	*dest;
+	int		i;
+
+	i = 0;
+	dest = (char *)malloc((ft_strlen(src) + 1) * sizeof(char));
+	if (!dest)
+		return NULL;
+	while (src[i])
 	{
-		ft_itoa(nb / 10);
-		ft_itoa(nb % 10);
+		dest[i] = src[i];
+		i++;
 	}
-	if (nv >= 0 && nb <= 9)
-		str[i]
+	dest[i] = '\0';
+	return (dest);
 }
-/*
+
 int	main(void)
 {
-	ft_putnbr(-4208970);
+	char	*src;
+
+	src = "Bonjour je suis au Havre";
+	printf("SRC:\t%s\n", src);
+	printf("DST:\t%s\n", ft_strdup(src));
 	return (0);
 }
-*/
